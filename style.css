@@ -1,0 +1,56 @@
+body{
+	width:600px;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.tiles{
+	width:99px;
+	height:99px;
+	background-color: black;
+	margin:0px;
+	float:left;
+}
+
+.player{
+	z-index: 10;
+	position: relative;
+	width: 75%;
+	height: 75%;
+	margin-left: 12.5%;
+	margin-right: 12.5%;
+	margin-top: 12.5%;
+	margin-bottom: 12.5%;
+}
+
+.enemy{
+	width:150px;
+	height:150px;
+	float:right;
+	margin-left: auto;
+}
+
+.you{
+	width:200px;
+	height:200px;
+	float:left;
+	margin-right: auto;
+}
+.grass{
+	z-index: 0;
+	position: absolute;
+	width:99px;
+	height:99px;
+	background-color: black;
+	margin:0px;
+	
+}
+
+.tallGrass{
+	z-index: 1;
+	position: absolute;
+	width:99px;
+	height:99px;
+	margin:0px;
+	
+}

@@ -10,11 +10,9 @@ $("#generate").on("click", function(){
 
 	}
 
-	var grass = $("<img class='grass' src='img/Grass.png'>")
+	var grass = $("<div class='grass'>")
 		$(".tiles").append(grass);
 
-	var tile = $(`<img class="player" src="img/player_up.png">`);	
-	$(".A34").append(tile);
 	generate();
 })
 
@@ -96,16 +94,18 @@ $(document).keydown(function(e){
     e.preventDefault();
     //left
     if (e.keyCode == 37) { 
-
+		var tile = $("<div class='player player_left'>");
+		$(".player").replaceWith(tile);
     	//checks to see if its at a wall
     	if(check(left)){
+
 
     		//subtracts one from the coordinate, moving it left
 	       loca --;
 	       //removes the previous player icon
 			$(".player").remove();
 			//creates a new one
-			var tile = $("<img class='player' src='img/player_left.png'>");
+			
 
 			//cerates the coordinate that jquery can read
 			var coordinate = ".A" + loca;
@@ -118,38 +118,46 @@ $(document).keydown(function(e){
     }
     //up
    if(e.keyCode == 38){
-	   	if(loca > 6 ){
-	    	loca = loca - 6;
-			$(".player").remove();
-			var tile = $("<img class='player' src='img/player_up.png'>");
-			var coordinate = ".A" + loca;
+   	var tile = $("<div class='player player_up'>");
+   	$(".player").replaceWith(tile);
+	   	if(loca >= 6 ){
 
-			console.log(coordinate);
-			$(coordinate).append(tile);
+				loca = loca - 6;
+				
+				$(".player").remove();
+				var coordinate = ".A" + loca;
+
+				console.log(coordinate);
+				$(coordinate).append(tile);
+			
 		}
     }
     //right
     if(e.keyCode == 39){
-    	if(check(right)){
+    	var tile = $("<div class='player player_right'>");
+    	$(".player").replaceWith(tile);
+	    	if(check(right)){
 
-	    	loca ++;
-			$(".player").remove();
-			var tile = $("<img class='player' src='img/player_right.png'>");
-			var coordinate = ".A" + loca;
+		    	loca ++;
+				$(".player").remove();
+				
+				var coordinate = ".A" + loca;
 
-			console.log(coordinate);
-			$(coordinate).append(tile);
-		}
+				console.log(coordinate);
+				$(coordinate).append(tile);
+			}
     }
     //down
     if(e.keyCode == 40){
+    	var tile = $("<div class='player player_down'>");
+    	$(".player").replaceWith(tile);
     	if(loca < 30){
 
 	    	loca = loca + 6;
 
 			$(".player").remove();
 
-			var tile = $("<img class='player' src='img/player_down.png'>");
+			
 			var coordinate = ".A" + loca;
 
 			console.log(coordinate);
@@ -157,7 +165,6 @@ $(document).keydown(function(e){
 		}
     }
    var color = $(".player").parent().css("background-color");
-   console.log(color);
    encounter(color);
 
 });
@@ -171,10 +178,13 @@ function generate(){
 	for(i=0;i<15;i++){
 		var coord = '.A' + Math.floor(Math.random() * (35 + 1));;
 		$(coord).css("background-color","lightgreen");
-		var tallGrass = $("<img class='tallGrass' src='img/tallgrass.png'>");
+		var tallGrass = $("<div class='tallGrass'>");
 		$(coord).append(tallGrass);
 
 	}
+	
+	var tile = $(`<div class="player player_up">`);	
+	$(".A34").append(tile);
 }
 
 //decides if theres an encounter when walked on a green space
@@ -182,7 +192,7 @@ function encounter(space){
 	if(space == "rgb(144, 238, 144)"){
 		console.log("encounter!")
 		if(Math.floor(Math.random() * (4))+1 == 4){
-			$(".encounter").modal('toggle');
+			
 		};
 
 	};

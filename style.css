@@ -21,6 +21,26 @@ body{
 	margin-right: 12.5%;
 	margin-top: 12.5%;
 	margin-bottom: 12.5%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+.player_up{
+	background-image: url("img/player_up.png");
+
+}
+
+.player_left{
+	background-image: url("img/player_left.png");
+}
+
+.player_right{
+	background-image: url("img/player_right.png");
+}
+
+.player_down{
+	background-image: url("img/player_down.png");
 }
 
 .enemy{
@@ -41,7 +61,8 @@ body{
 	position: absolute;
 	width:99px;
 	height:99px;
-	background-color: black;
+	background-image: url("img/grass.png");
+	background-size: cover;
 	margin:0px;
 	
 }
@@ -49,8 +70,24 @@ body{
 .tallGrass{
 	z-index: 1;
 	position: absolute;
+	background-image: url("img/tallGrass.png");
+	background-size: cover;
 	width:99px;
 	height:99px;
 	margin:0px;
 	
 }
+
+
+.moveUp{
+	animation-duration: 0.5s;
+	animation-name: up;
+	animation-fill-mode: forwards;
+}
+@-webkit-keyframes up {
+    0%   {left:0px; top:0px;}
+    33%  {background-image: url("img/player_walkUp1.png"); top: -33px;}
+    66%  {background-image: url("img/player_walkUp2.png"); top: -66px;}
+    100% {left:0px; top:-99px;}
+}
+

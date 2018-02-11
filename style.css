@@ -61,7 +61,7 @@ body{
 	position: absolute;
 	width:99px;
 	height:99px;
-	background-image: url("img/grass.png");
+	background-image: url("img/Grass.png");
 	background-size: cover;
 	margin:0px;
 	
@@ -70,7 +70,7 @@ body{
 .tallGrass{
 	z-index: 1;
 	position: absolute;
-	background-image: url("img/tallGrass.png");
+	background-image: url("img/tallgrass.png");
 	background-size: cover;
 	width:99px;
 	height:99px;
